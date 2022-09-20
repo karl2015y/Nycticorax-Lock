@@ -1,6 +1,6 @@
 <template>
 	<div style="user-select: none;
-width:100vw; height:80vh;margin-left:auto; margin-right: auto;">
+width:100vw; height:70vh;margin-left:auto; margin-right: auto;">
 		<svg id="svg" viewBox="0 0 500 500" width="100%" height="100%">
 			<defs>
 				<g class="combination-input-template">
@@ -56,8 +56,10 @@ width:100vw; height:80vh;margin-left:auto; margin-right: auto;">
 <script setup lang="ts">
 import { handleNoPass, handlePass, startUnlockAttempt } from '../../src/common/CombinationLockAnimate'
 import { computed, ref } from 'vue';
+import { useScrollLock } from '@vueuse/core'
 
-
+const isLocked = useScrollLock(document.body)
+isLocked.value=true
 
 //密碼
 // 處理密碼
